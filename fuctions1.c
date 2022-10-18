@@ -73,3 +73,37 @@ int _integer(va_list list)
 	}
 	return (i);
 }
+
+/**
+ * _uns_integer - prints integer
+ * @list: va_list variable
+ * Return: prints given number of integers
+ */
+
+int _uns_integer(va_list list)
+{
+        unsigned int num1 = va_arg(list, unsigned int), num2;
+        unsigned int div = 1, i = 0;
+
+        if (num1 < 1)
+        {
+                return(0);
+        }
+        num2 = num1;
+        while (num2 > 9)
+        {
+                div *= 10;
+                num2 = num2 / 10;
+        }
+        while (div >= 1)
+        {
+                num2 = num1 % div;
+                num1 /= div;
+                _putchar(num1 + '0');
+                num1 = num2;
+                div /= 10;
+                i++;
+        }
+        return (i);
+}
+

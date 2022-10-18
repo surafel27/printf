@@ -17,5 +17,5 @@ int _percent(va_list list);
 int _char(va_list list);
 int _string(va_list list);
 int _integer(va_list list);
-
+int _uns_integer(va_list list);
 #endif
