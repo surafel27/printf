@@ -1,34 +1,21 @@
 #ifndef MAIN_H
 #define MAIN_H
-#include <stdarg.h>
-#include <unistd.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 
-char *char_str(va_list ap);
-int _strlen(char *s);
-char *_strcpy(char *dest, char *s);
-char *str_str(va_list ap);
-char *print_num(int n, int mul, int len);
-char *num_str(va_list ap);
-char *binary(va_list ap);
-char *create_buf(void);
-char* (*get_function(char c))(va_list);
-void print_buffer(char *buffer, int len, va_list ap);
-int _printf(const char *format, ...);
-
-/**
- * struct data - contains two elements
- * @c: character
- * @fun: pointer to function
- *
- * Description: contains a character and pointer to function
- * for passing it as an argument.
- */
-
-typedef struct data
+typedef struct formats
 {
-	char c;
-	char* (*fun)(va_list);
-} data_t;
+	char *sym;
+	int (*f)(va_list);
+} fmtsSpefier;
+
+int _putchar(char c);
+int _printf(const char *format, ...);
+int charsFormats(const char *format, va_list args);
+int _percent(va_list list);
+int _char(va_list list);
+int _string(va_list list);
+int _integer(va_list list);
 
 #endif
